@@ -1,12 +1,9 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class OrderItem {
 
     private Integer quantity;
-    private Double price;
+    //private Double price;
     //ASSOCIATION
     private Product product;
 
@@ -15,17 +12,16 @@ public class OrderItem {
     }
 
     //CONSTRUCTOR
-    public OrderItem(Integer quantity, Double price, Product product) {
+    public OrderItem(Integer quantity, Product product) {
         this.quantity = quantity;
-        this.price = price;
         this.product = product;
     }
 
-    public double subTotal() {
         double sum = 0;
-        sum = quantity * price;
+    public double subTotal() {
+        sum = quantity * product.getPrice();
         return sum;
-    }
+   }
 
     //GET AND SET
     public Integer getQuantity() {
@@ -34,14 +30,6 @@ public class OrderItem {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public Product getProduct() {
